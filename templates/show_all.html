@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head></head>
+   <body>
+      
+      <h3>
+         <a href = "{{ url_for('show_all') }}">All Data</a>
+      </h3>
+      
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+		
+      <h3>regforms (<a href = "{{ url_for('new') }}">Add regform
+         </a>)</h3>
+      
+      <table>
+         <thead>
+            <tr>
+               <th>firstname</th>
+               <th>lastname</th>
+               <th>email</th>
+               <th>password</th>
+               <th>acctype</th>
+               <th>terms</th>
+               <th>age</th>
+               <th>referrer</th>
+               <th>bio</th>
+               
+            </tr>
+         </thead>
+         
+         <tbody>
+            {% for regform in regforms %}
+               <tr>
+                  <td>{{ regform.firstname }}</td>
+                  <td>{{ regform.lastname }}</td>
+                  <td>{{ regform.email }}</td>
+                  <td>{{ regform.password }}</td>
+                  <td>{{ regform.acctype }}</td>
+                  <td>{{ regform.terms }}</td>
+                  <td>{{ regform.age }}</td>
+                  <td>{{ regform.referrer }}</td>
+                  <td>{{ regform.bio }}</td>
+                  
+                  
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      
+   </body>
+</html>
